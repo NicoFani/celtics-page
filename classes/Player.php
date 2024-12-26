@@ -8,7 +8,16 @@ class Player
     readonly public string $player_name,
     readonly public string $position,
     readonly public int $age,
-    readonly public string $img_url
+    readonly public string $img_url,
+    readonly public int $games,
+    readonly public int $minutes_played,
+    readonly public float $per,
+    readonly public float $ts_percent,
+    readonly public float $usage_percent,
+    readonly public float $win_shares,
+    readonly public float $box,
+    readonly public float $vorp
+
   ) {}
 
   public static function fetch_and_create_players(string $api_url): array
@@ -49,7 +58,15 @@ class Player
 
 
             default             => 'https://a.espncdn.com/combiner/i?img=/i/teamlogos/nba/500/bos.png&h=200&w=200',
-          }
+          },
+          $player_data['games'],
+          $player_data['minutesPlayed'],
+          $player_data['per'],
+          $player_data['tsPercent'],
+          $player_data['usagePercent'],
+          $player_data['winShares'],
+          $player_data['box'],
+          $player_data['vorp']
         );
       }
     }
